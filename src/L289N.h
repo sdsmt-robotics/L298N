@@ -11,6 +11,7 @@ public:
   
   void forwards();
   void backwards();
+  void init();
   void setSpeed(int speed);
   void setSpeedDirection(int speed);
   

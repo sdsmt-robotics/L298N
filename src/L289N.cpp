@@ -7,10 +7,6 @@ L289N::L289N(int _dir1, int _dir2, int _pwm, bool _invert = false)
 	pwm  = _pwm ;
 	invert = _invert;
 	
-	pinMode(dir1, OUTPUT);
-	pinMode(dir2, OUTPUT);
-	pinMode(pwm, OUTPUT);
-	
 	if (!invert)
 	{
 		forwardDirection = 1;
@@ -21,6 +17,16 @@ L289N::L289N(int _dir1, int _dir2, int _pwm, bool _invert = false)
 		forwardDirection = 0;
 		backwardDirection = 1;
 	}
+}
+
+/**
+* Initialize the controller pins.
+*/
+void L289N::init()
+{
+	pinMode(dir1, OUTPUT);
+	pinMode(dir2, OUTPUT);
+	pinMode(pwm, OUTPUT);
 }
 
 void L289N::forwards()
@@ -37,7 +43,7 @@ void L289N::backwards()
 
 void L289N::setSpeed(int speed)
 {
-	analogWrite(pwm, speed);
+	analogWrite(pwm, constrain(speed, 0, 255));
 }
 
 void L289N::setSpeedDirection(int speed)

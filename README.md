@@ -29,3 +29,12 @@ Set the motor speed and direction.
 ![Pinout](https://i2.wp.com/electronicshobbyists.com/wp-content/uploads/2017/08/word-image-13.png?resize=718,448)
 
 Datasheet: [https://www.sparkfun.com/datasheets/Robotics/L298_H_Bridge.pdf](https://www.sparkfun.com/datasheets/Robotics/L298_H_Bridge.pdf)
+
+This device is a dual H-bridge cabable of controlling two motors simultaneously. It also has a 5v output for powering other devices.
+
+**Wiring:**  
+
+|             | pwmPin   | dirPin1 | dirPin2 |
+|-------------|----------|---------|---------|
+| **Motor 1** | Enable A | Input 1 | Input 2 |
+| **Motor 2** | Enable B | Input 3 | Input 4 |

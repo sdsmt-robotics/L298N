@@ -1,5 +1,9 @@
 #ifndef L289N__
 #define L289N__
+
+//for ESP32 used in 2020 Super Robo Time
+#ifdef ARDUINO_NodeMCU_32S
+#include <analogWrite.h> // https://github.com/ERROPiX/ESP32_AnalogWrite
 #endif
 
 #include "Arduino.h"
@@ -19,3 +23,5 @@ public:
   bool invert;
   bool forwardDirection, backwardDirection;
 };
+
+#endif

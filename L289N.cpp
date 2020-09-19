@@ -1,6 +1,6 @@
 #include "L289N.h"
 
-L289N::L289N(int _dir1, int _dir2, int _pwm, bool _invert = false)
+L289N::L289N(int _dir1, int _dir2, int _pwm, bool _invert)
 {
 	dir1 = _dir1;
 	dir2 = _dir2;

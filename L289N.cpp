@@ -46,8 +46,23 @@ void L289N::setSpeed(int speed)
 	analogWrite(pwm, constrain(speed, 0, 255));
 }
 
-void L289N::setSpeedDirection(int speed)
+void L289N::setSpeedDirection(int speed, bool softStart)
 {
+	if (softStart && millis() > softStartPrevTime + softStartPeriod)
+	{
+		if (softStartSpeed < speed)
+		{
+			softStartSpeed++;
+		}
+		else if (softStartSpeed > speed)
+		{
+			softStartSpeed--;
+		}
+		
+		speed = softStartSpeed;
+		softStartPrevTime = millis();
+	}
+	
 	if (speed >= 0)
 	{
 		forwards();

@@ -17,11 +17,15 @@ public:
   void backwards();
   void init();
   void setSpeed(int speed);
-  void setSpeedDirection(int speed);
+  void setSpeedDirection(int speed, bool softStart = false);
   
   int dir1, dir2, pwm;
   bool invert;
   bool forwardDirection, backwardDirection;
+  
+  int softStartPeriod = 2;
+  int softStartSpeed = 0;
+  uint64_t softStartPrevTime = 0;
 };
 
 #endif

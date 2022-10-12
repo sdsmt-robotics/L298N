@@ -1,5 +1,9 @@
 #include "L289N.h"
 
+#ifdef ESP32
+	#include "analogWrite.h"
+#endif // ESP32
+
 L289N::L289N(int _dir1, int _dir2, int _pwm, bool _invert)
 {
 	dir1 = _dir1;
